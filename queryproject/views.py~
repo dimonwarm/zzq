@@ -1,0 +1,12 @@
+from django.shortcuts import render_to_response
+from django.views.decorators.csrf import csrf_exempt 
+@csrf_exempt
+def query(request):
+	return render_to_response('query.html')
+@csrf_exempt
+def res(request):
+	inputval=request.POST.get('input','')
+	return render_to_response('res.html',{'input':inputval}, context_instance=RequestContext(request))
+
+
+

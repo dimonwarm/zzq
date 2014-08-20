@@ -1,0 +1,55 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd";>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+		<script type="text/javascript" src="/js/jquery2.0.0.js"></script>
+		<script>
+		$(document).ready(function(){
+			$("#input-button").click(function(){
+				inputval=$("input").val();
+				$.post("res",{input:inputval},
+				function (response){
+					$("#myDiv").html(response)}
+					);
+				})
+			});
+		</script>
+		<link rel="stylesheet" type="text/css" href="/css/query.css">
+		<title>杭州市小客车摇号结果查询</title>
+	</head>
+	<body>
+		<div class="query-result">
+			<div class="gap">
+				<h2 class="gap-address">
+					<a href="http://xkctk.hzcb.gov.cn" target=_blank>杭州市小客车摇号结果查询官网</a>
+				</h2>
+			</div>
+			<div class="query-border">
+				<div class="query-container">
+					<div class="pic">
+						<img src="/images/hangzhoubiaozhi.jpg">
+					</div>
+					<div class="input-bar">
+						<div class="input-title">
+							<p>摇号信息查询</p>
+						</div>
+						<div class="input">
+							<div class="box-button">
+								<form method="post">
+									{% csrf_token %}
+									<input class="yaohao-input" type="text" maxlength="13" placeholder="输入姓名或摇号申请编码进行查询" data-placeholder="输入姓名或摇号申请编码进行查询"/>
+									<button id="input-button" type="button">结果查询</button>
+								</form>
+								<p class="update-time">更新时间：2014-07-28</p>
+								<br/>
+								<div id="myDiv"></div>							
+							</div>
+						</div>
+					</div>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+		</div>
+	</body>
+</html>

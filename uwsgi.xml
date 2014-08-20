@@ -1,0 +1,5 @@
+<uwsgi>
+        <chdir>/home/danmeng/zzq/queryproject</chdir>
+        <pythonpath>..</pythonpath>
+        <module>django_wsgi</module>
+</uwsgi>
